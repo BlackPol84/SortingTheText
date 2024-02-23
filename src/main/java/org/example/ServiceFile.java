@@ -27,12 +27,8 @@ public class ServiceFile {
     public void recordFile(List<String> line) {
 
         try(FileWriter fileWriter = new FileWriter("ModifiedFile.txt",true)) {
-
-            StringBuilder stringWithLength = new StringBuilder();
-
             for(String str : line) {
-                stringWithLength.append(str).append(" ").append(str.length()).append("\n");
-                fileWriter.write(stringWithLength.toString());
+                fileWriter.write(str + " " + str.length() +"\n");
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
